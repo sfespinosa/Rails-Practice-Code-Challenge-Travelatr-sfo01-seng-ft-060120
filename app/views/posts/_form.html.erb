@@ -1,0 +1,23 @@
+<%= form_for @post do |f| %>
+<% if @post.errors.any? %>
+    <%= pluralize(@post.errors.full_messages.count, "Error") %>:
+    <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+<% end %>
+
+
+    <%= f.label :title %>
+    <%= f.text_field :title%><br>
+
+    <%= f.label :content %>
+    <%= f.text_area :content %><br>
+
+    <%= f.label :blogger_id %>
+    <%= f.collection_select :blogger_id, Blogger.all, :id, :name %><br>
+
+    <%= f.label :destination_id %>
+    <%= f.collection_select :destination_id, Destination.all, :id, :name %><br>
+
+    <%= f.submit %>
+<% end %>

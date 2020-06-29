@@ -1,0 +1,24 @@
+<h1> Create a Blogger: </h1>
+<%= form_for @blogger do |f| %>
+<% if @blogger.errors.any? %>
+    <%= pluralize(@blogger.errors.full_messages.count, "Error") %>:
+    <% @blogger.errors.full_messages.each do |m| %><br>
+        <%= m %>
+    <% end %>
+<% end %>
+<br>
+<br>
+<div>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+</div>
+<div>
+    <%= f.label :age %>
+    <%= f.number_field :age%><br>
+</div>
+<div>
+    <%= f.label :bio %>
+    <%= f.text_area :bio %><br>
+    </div>
+<%= f.submit %>
+<% end %>
