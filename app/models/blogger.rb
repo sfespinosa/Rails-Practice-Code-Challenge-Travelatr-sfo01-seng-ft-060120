@@ -9,8 +9,9 @@
         self.posts.sort_by { |post| post.likes }.reverse.first
     end
 
-    # def top_destinations
-    #     byebug
-    #     self.destinations.sort_by { |destination| destination.count }.reverse
-    # end
+    def top_destinations
+        destinations = self.posts.group_by { |post| post.destination }
+        sorted = destinations.sort_by { |dest, posts| posts.length }.reverse
+        sorted.map { |dest| dest[0] }
+    end
 end

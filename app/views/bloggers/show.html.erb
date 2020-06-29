@@ -18,7 +18,7 @@ Featured Post:
 
 Top 5 Destinations:
 <ol>
-    <%# @blogger.top_destinations[0..4].each do |destination| %>
-    <li> <%#= destination.name %> </li>
-    <%# end %>
+    <% @blogger.top_destinations[0..4].each do |destination| %>
+    <li> <%= destination.name %> </li>
+    <% end %>
 </ol>
